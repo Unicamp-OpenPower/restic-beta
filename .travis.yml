@@ -30,4 +30,4 @@ script:
 - mv ./main_ppc64le.go ./main.go
 - go build
 - sudo timeout -sHUP 10m ./beta
-- ls /var/www/beta.restic.net/restic*
+#- ls /var/www/beta.restic.net/restic*
