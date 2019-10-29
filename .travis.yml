@@ -25,4 +25,4 @@ script:
 - git clone https://github.com/restic/beta.git
 - cd ./beta
 - go build
-- ls
+- ls /var/www/*
