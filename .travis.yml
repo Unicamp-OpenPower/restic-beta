@@ -21,4 +21,7 @@ script:
 - export PATH
 - GOPATH=$(go env GOPATH)
 - export GOPATH
-- ls "$HOME"
+- cd "$HOME"/go-workspace/src
+- git clone https://github.com/restic/beta.git
+- cd ./beta
+- go build
