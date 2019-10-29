@@ -21,3 +21,4 @@ script:
 - export PATH
 - GOPATH=$(go env GOPATH)
 - export GOPATH
+- ls "$HOME"
