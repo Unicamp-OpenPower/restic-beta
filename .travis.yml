@@ -26,7 +26,7 @@ script:
 - cd "$HOME"/go-workspace/src
 - git clone https://github.com/restic/beta.git
 - cd ./beta
-- sed '3i	{"linux", "ppc64le"},' main.go > main_ppc64le.go
+- sed '113i\                \{"linux", "ppc64le"},' main.go > main_ppc64le.go
 - mv ./main_ppc64le.go ./main.go
 - go build
 - sudo timeout -sHUP 10m ./beta
