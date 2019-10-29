@@ -1,4 +1,7 @@
-laguage: go
+language: go
+
+go:
+- 1.13.x
 
 arch: ppc64le
 
