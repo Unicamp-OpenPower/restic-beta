@@ -1,5 +1,7 @@
 language: go
 
+sudo: required
+
 go:
 - 1.13.x
 
@@ -27,5 +29,5 @@ script:
 - sed '3i	{"linux", "ppc64le"},' main.go > main_ppc64le.go
 - mv ./main_ppc64le.go ./main.go
 - go build
-- timeout -sHUP 10m ./beta
+- sudo timeout -sHUP 10m ./beta
 - ls /var/www/beta.restic.net/restic*
