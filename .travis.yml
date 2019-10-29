@@ -7,4 +7,17 @@ arch: ppc64le
 
 os: linux
 
-script: uname -a
+script: 
+- uname -a
+- mkdir -p "$HOME"/go-workspace
+- mkdir -p "$HOME"/go-workspace/bin
+- mkdir -p "$HOME"/go-workspace/src
+- mkdir -p "$HOME"/go-workspace/pkg
+- PATH=$PATH:/usr/local/go/bin
+- export PATH
+- GOPATH=$HOME/go-workspace
+- export GOPATH
+- PATH=$PATH:$(go env GOPATH)/bin
+- export PATH
+- GOPATH=$(go env GOPATH)
+- export GOPATH
