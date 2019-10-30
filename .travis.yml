@@ -30,5 +30,5 @@ script:
 - sed '113i\                \{"linux", "ppc64le"},' main.go > main_ppc64le.go
 - mv ./main_ppc64le.go ./main.go
 - go build
-- timeout 5m ./beta && echo "success"
+- timeout 5m ./beta || echo "success"
 - ls /var/www/beta.restic.net/restic*
