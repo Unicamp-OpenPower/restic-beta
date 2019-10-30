@@ -39,7 +39,7 @@ script:
 
 deploy:
   provider: script  
-  script: if [ BUILD==true ]; then sudo apt-get install -y lftp; bash ftp_upload.sh; else echo "Deploy skipped"; fi
+  script: sudo apt-get install -y lftp; bash $TRAVIS_BUILD_DIR/ftp_upload.sh
   skip_cleanup: true
 
 notifications:
