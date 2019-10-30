@@ -36,3 +36,15 @@ script:
 - echo $DIR_NAME
 - ls /var/www/beta.restic.net/restic*
 # TODO: copy the content of /var/www/beta.restic.net/restic* to the FTP if the build completes with success.
+
+deploy:
+  provider: script  
+  script: if [ BUILD==true ]; then sudo apt-get install -y lftp; bash ftp_upload.sh; else echo "Deploy skipped"; fi
+  skip_cleanup: true
+
+notifications:
+  slack:
+    rooms:
+      - secure: "kPpQoe35V2RAGsKDNBn9kY+i6HJ3h0rJ48BS1NRjkg0/d06APNvtH+U5cwBd4MxLUoZlLAh4wncaZqfEmtsSBZv8KENDIyPxxm55ZFt6A7z4WwcfWBn11FyZ6oHVWVd+0c7W8s4IeVW3lMF53MBl/JmS1QmLnuVxThPnfL98pxV2AjU2M0XlXdqxv+jQ8sWSLxbT+7IjPrCRGKQFbCliBYDIUgJY6gEGmcodPPIniPU6VrmjG4f5zZd0AgGQ/62y45Adh/Z97JD4Ihj4tpQMRzW2zCo5/O3k0j2SPySTKm6+PLvkYgWPhjqRMv7ropuK4tYU1+whhApxhDlJ//52fdU1bn4cqvfZWh/oZd32cx1y0B21BpsZiWzaPjSRXc22LKbZ8UoL5cN58dkqHknOelXNjiyBhYxi3NZHjeHWhdEp2FndedqlyhZ3OAhIWnjw8M9FBW0/ZDvX8Y6L+FIAWn135o+oQVcEm590exC8DRoQiINiMfpX3OCbM6saojbU8uXW/YY+CTnNQcpJgM51HGEb1hVOvd3Aw5J8EfIjkPcG/VTWEo7r9Y3s7WzTDH8dfsKapSKO/8nt5DV6sX0zRbjOp6bQcrEAD4Vcmg8w7ZmiqsyKRFdVTo+1kMDyaiM/I2S+l6UNojjBm8AHMXLpH8gsYK/+AkUSwmJQ7RwmSVQ="
+    on_success: change
+    on_failure: always
