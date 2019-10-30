@@ -32,5 +32,7 @@ script:
 - mv ./main_ppc64le.go ./main.go
 - go build
 - timeout 5m ./beta || echo "success"
+- DIR_NAME=$(ls /var/www/beta.restic.net/)
+- echo $DIR_NAME
 - ls /var/www/beta.restic.net/restic*
 # TODO: copy the content of /var/www/beta.restic.net/restic* to the FTP if the build completes with success.
