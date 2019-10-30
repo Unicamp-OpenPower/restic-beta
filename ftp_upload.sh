@@ -2,8 +2,10 @@
 
 set -e
 
+DIR_NAME=$(ls /var/www/beta.restic.net/)
+
 FTP_HOST='oplab9.parqtec.unicamp.br'
-LOCALPATH=/var/www/beta.restic.net/restic*
+LOCALPATH=/var/www/beta.restic.net/$DIR_NAME
 REMOTEPATH='/ppc64el/restic/beta'
 
 # Upload files from LOCALPATH recursively to REMOTEPATH
