@@ -27,8 +27,10 @@ script:
 - cd "$HOME"/go-workspace/src
 - git clone https://github.com/restic/beta.git
 - cd ./beta
+# Add Power as part of the list of supported architectures
 - sed '113i\                \{"linux", "ppc64le"},' main.go > main_ppc64le.go
 - mv ./main_ppc64le.go ./main.go
 - go build
 - timeout 5m ./beta || echo "success"
 - ls /var/www/beta.restic.net/restic*
+# TODO: copy the content of /var/www/beta.restic.net/restic* to the FTP if the build completes with success.
